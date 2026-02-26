@@ -3,7 +3,18 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Axiom — AI 시대의 프론트엔드 인프라</title>
+  <title>Axiom — AX 시대의 프론트엔드 인프라 플랫폼</title>
+  <meta name="description" content="AX를 실행할 프론트엔드 아키텍처, 이미 준비되어 있습니다. 귀사는 사업 확장에만 집중하세요."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Axiom — AX를 실행할 프론트엔드 인프라"/>
+  <meta property="og:description" content="중견기업의 DT·AX 전환을 위한 프론트엔드 인프라 플랫폼. AI 코드리뷰, 모노레포, 사내 패키지 레지스트리를 단기간 내 구축합니다."/>
+  <meta property="og:image" content="https://leverage-org.github.io/og-image.png"/>
+  <meta property="og:url" content="https://leverage-org.github.io/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Axiom — AX를 실행할 프론트엔드 인프라"/>
+  <meta name="twitter:description" content="중견기업의 DT·AX 전환을 위한 프론트엔드 인프라 플랫폼. 단기간 내 구축합니다."/>
+  <meta name="twitter:image" content="https://leverage-org.github.io/og-image.png"/>
+  <meta name="theme-color" content="#000000"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -67,7 +78,7 @@
     .hero {
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      padding: 80px 40px 40px; text-align: center; position: relative; overflow: hidden;
+      padding: 80px 40px 40px; position: relative; overflow: hidden;
     }
     .hero-grid {
       position: absolute; inset: 0;
@@ -78,7 +89,26 @@
       pointer-events: none;
       transition: transform .1s ease-out;
     }
-    .hero-in { position: relative; max-width: 780px; }
+    .hero-in {
+      position: relative; max-width: 1060px; width: 100%;
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center;
+    }
+    .hero-left { }
+    .hero-right { }
+    .hero-term {
+      background: var(--s1); border: 1px solid var(--bd2); border-radius: 12px;
+      overflow: hidden; font-family: var(--mono);
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+      animation: h1-up .8s cubic-bezier(.22,1,.36,1) .55s both;
+    }
+    .hero-term .tbar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--bd); background: var(--s2); }
+    .hero-term .ttl { font-size: .65rem; color: var(--t3); margin-left: 6px; }
+    .hero-term .tbody { padding: 18px 18px; font-size: .75rem; line-height: 2; }
+    .hero-term .ht-line {
+      opacity: 0; transform: translateY(4px);
+      transition: opacity .4s, transform .4s;
+    }
+    .hero-term .ht-line.ht-show { opacity: 1; transform: none; }
     .badge {
       display: inline-flex; align-items: center; gap: 7px;
       border: 1px solid var(--bd2); border-radius: 100px;
@@ -109,11 +139,11 @@
     h1 .dim { color: var(--t3); }
     .hsub {
       font-size: 1.02rem; color: var(--t2); line-height: 1.8;
-      max-width: 460px; margin: 0 auto 36px;
+      max-width: 460px; margin: 0 0 36px;
       animation: h1-up .8s cubic-bezier(.22,1,.36,1) .38s both;
     }
     .hsub strong { color: var(--t1); font-weight: 600; }
-    .hbtns { display: flex; gap: 10px; justify-content: center; margin-bottom: 36px; flex-wrap: wrap; animation: h1-up .8s cubic-bezier(.22,1,.36,1) .48s both; }
+    .hbtns { display: flex; gap: 10px; justify-content: flex-start; margin-bottom: 36px; flex-wrap: wrap; animation: h1-up .8s cubic-bezier(.22,1,.36,1) .48s both; }
     .bw {
       display: inline-flex; align-items: center; gap: 7px;
       background: var(--t1); color: #000; font-size: .85rem; font-weight: 700;
@@ -226,6 +256,9 @@
       font-size: .86rem; color: var(--t2); line-height: 1.65; margin-bottom: 8px;
     }
     .fc-value::before { content: '→'; color: var(--gr); flex-shrink: 0; font-size: .75rem; margin-top: 2px; }
+    .fc-screenshot { margin-top: 18px; border-radius: 8px; overflow: hidden; border: 1px solid var(--bd); }
+    .fc-screenshot img { width: 100%; display: block; opacity: .85; transition: opacity .3s; }
+    .fc:hover .fc-screenshot img { opacity: 1; }
     .term { background: var(--bg); border: 1px solid var(--bd); border-radius: 8px; overflow: hidden; margin-top: 18px; font-family: var(--mono); }
     .tbar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; border-bottom: 1px solid var(--bd); background: var(--s1); }
     .tl { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
@@ -353,6 +386,7 @@
       nav{padding:0 20px;} .nlinks{display:none;}
       .hero,.sec,.cta{padding-left:20px;padding-right:20px;}
       .pain-g,.feat-g,.ax-block,.legacy-g{grid-template-columns:1fr;}
+      .hero-in{grid-template-columns:1fr;}
       .ax-block .ax-left{border-right:none;border-bottom:1px solid var(--bd);}
       .proof-top{grid-template-columns:1fr;}
       .proof-brand{border-right:none;border-bottom:1px solid var(--bd);}
@@ -373,36 +407,49 @@
       <a href="#product">제품</a>
       <a href="#roi">ROI</a>
     </div>
-    <a href="#contact" class="nbtn">데모 신청</a>
+    <a href="#contact" class="nbtn">도입 상담</a>
   </div>
 </nav>
 <section class="hero">
   <div class="hero-grid" id="hero-grid"></div>
   <div class="hero-in">
-    <a href="#proof" class="badge">
-      <span class="bdot"></span>
-      Netflix · Vercel · Stripe · Kakao가 쓰는 아키텍처 · 프로덕션 운영 중
-    </a>
-    <h1>Cursor 도입했는데,<br/><span class="dim">코드 품질은 왜 더<br/>들쭉날쭉해졌을까요?</span></h1>
-    <p class="hsub">
-      AI 코딩 도구는 <strong>좋은 컨벤션이 있어야</strong> 좋은 코드를 냅니다.<br/>
-      컨벤션 없이 AI를 쓰면 팀원마다 결과물이 전부 달라집니다.
-    </p>
-    <div class="hbtns">
-      <button onclick="openModal()" class="bw">
-        데모 신청하기
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <a href="#why" class="bo">어떤 문제를 해결하나요?</a>
+    <div class="hero-left">
+      <a href="#proof" class="badge">
+        <span class="bdot"></span>
+        Netflix · Vercel · Stripe · Kakao가 채택한 아키텍처
+      </a>
+      <h1>Cursor 도입했는데,<br/><span class="dim">코드 품질은 왜 더<br/>들쭉날쭉해졌을까?</span></h1>
+      <p class="hsub">
+        AI 코딩 도구는 <strong>좋은 컨벤션이 있어야</strong> 좋은 코드를 냅니다.<br/>
+        컨벤션 없이 AI를 쓰면 팀원마다 결과물이 전부 달라집니다.
+      </p>
+      <div class="hbtns">
+        <button onclick="openModal()" class="bw">
+          도입 상담 신청하기
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a href="#why" class="bo">왜 지금 필요한가요?</a>
+      </div>
+      <div class="hlive">
+        <span class="hlive-dot">프로덕션 운영 중</span>
+        <span class="hlive-sep">/</span>
+        <span>패키지 12개</span>
+        <span class="hlive-sep">/</span>
+        <span>전 MR AI 리뷰</span>
+      </div>
     </div>
-    <div class="hlive">
-      <span class="hlive-dot">프로덕션 운영 중</span>
-      <span class="hlive-sep">/</span>
-      <span>패키지 12개</span>
-      <span class="hlive-sep">/</span>
-      <span>전 MR AI 리뷰</span>
-      <span class="hlive-sep">/</span>
-      <span>납품 2주</span>
+    <div class="hero-right">
+      <div class="hero-term" id="hero-term">
+        <div class="tbar"><div class="tl lr"></div><div class="tl ly"></div><div class="tl lg"></div><span class="ttl">axiom · pnpm build</span></div>
+        <div class="tbody">
+          <div class="ht-line"><span class="tc">$</span> <span class="tw">pnpm build</span></div>
+          <div class="ht-line"><span class="tg2">✓</span> <span class="tc">12 packages built</span> <span class="tp">cached</span></div>
+          <div class="ht-line"><span class="tg2">✓</span> <span class="tw">cache hit ratio: 100%</span></div>
+          <div class="ht-line" style="margin-top:6px;"><span class="tc">$</span> <span class="tw">ai-review</span> <span class="tg2">--all-mrs</span></div>
+          <div class="ht-line"><span class="tg2">✓</span> <span class="tc">3 MRs reviewed</span> <span class="tp">0 blockers</span></div>
+          <div class="ht-line"><span class="crs"></span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -410,28 +457,28 @@
 <section class="sec" id="why">
   <div class="wrap">
     <div class="rv">
-      <div class="ey">실제로 느끼는 문제들</div>
-      <h2>팀이 성장하면서<br/>반드시 만나는 3가지 벽</h2>
-      <p class="sdesc">지금 이 중 하나라도 있다면, 이미 느끼고 계신 겁니다.</p>
+      <div class="ey">AX 전환의 현실</div>
+      <h2>AI 도구를 도입했는데<br/>왜 생산성은 그대로일까요?</h2>
+      <p class="sdesc">AX를 선언하는 건 쉽습니다.<br/>실행이 안 되는 이유는 인프라에 있습니다.</p>
     </div>
     <div class="pain-g">
       <div class="pain-c rv" data-d="1">
         <div class="pain-ic"><i data-lucide="zap"></i></div>
-        <p style="font-size:.82rem;color:var(--t2);line-height:1.75;">오늘도 리드 개발자 퇴근이 늦습니다.<br/>PR이 쌓이면 모든 게 멈추고, 한 사람이 전부 봐야 하니까요.</p>
-        <p style="font-size:.78rem;color:var(--t3);line-height:1.7;margin-top:12px;">아키텍처를 설계할 시간은 없습니다. 리뷰 대기열이 그 시간을 먹습니다.</p>
-        <span class="tag">→ AI 코드리뷰 봇으로 해결</span>
+        <p style="font-size:.82rem;color:var(--t2);line-height:1.75;">시니어 개발자의 업무 시간 중<br/>70%가 코드 리뷰에 묶여 있습니다.<br/>신규 기능 개발은 계속 뒤로 밀립니다.</p>
+        <p style="font-size:.78rem;color:var(--t3);line-height:1.7;margin-top:12px;">핵심 인력이 병목이 되면,<br/>팀 전체의 생산성이 멈춥니다.</p>
+        <span class="tag">→ AI 코드리뷰로 시니어 리소스 확보</span>
       </div>
       <div class="pain-c rv" data-d="2">
         <div class="pain-ic"><i data-lucide="layers"></i></div>
-        <p style="font-size:.82rem;color:var(--t2);line-height:1.75;">같은 DatePicker가 코드베이스에 네 개 있습니다.<br/>누가 언제 왜 만들었는지, 어떤 게 표준인지 — 아무도 모릅니다.</p>
-        <p style="font-size:.78rem;color:var(--t3);line-height:1.7;margin-top:12px;">공통 컴포넌트가 있다는 걸 신규 입사자는 한 달 후에야 알게 됩니다.</p>
-        <span class="tag">→ 사내 npm 레지스트리로 해결</span>
+        <p style="font-size:.82rem;color:var(--t2);line-height:1.75;">같은 기능을 팀마다 따로 만들고 있습니다.<br/>기술 자산이 쌓이지 않고,<br/>중복 개발 비용이 매 분기 반복됩니다.</p>
+        <p style="font-size:.78rem;color:var(--t3);line-height:1.7;margin-top:12px;">표준화 없이는 AI 도구도 팀마다 다른 결과를 냅니다.</p>
+        <span class="tag">→ 사내 패키지로 기술 자산화</span>
       </div>
       <div class="pain-c rv" data-d="3">
         <div class="pain-ic"><i data-lucide="key-round"></i></div>
-        <p style="font-size:.82rem;color:var(--t2);line-height:1.75;">그 개발자가 떠난 지 두 달.<br/>아무도 그 코드를 건드리지 못합니다.</p>
-        <p style="font-size:.78rem;color:var(--t3);line-height:1.7;margin-top:12px;">왜 이 구조인지, 이 훅이 뭔지 — 문서도 없고, 물어볼 사람도 없습니다.</p>
-        <span class="tag">→ 패키지로 팀 노하우를 코드화</span>
+        <p style="font-size:.82rem;color:var(--t2);line-height:1.75;">핵심 개발자가 퇴사하면<br/>코드베이스가 블랙박스가 됩니다.<br/>인수인계 실패는 곧 사업 지연으로 이어집니다.</p>
+        <p style="font-size:.78rem;color:var(--t3);line-height:1.7;margin-top:12px;">사람이 아니라 시스템에 노하우가 남아야 합니다.</p>
+        <span class="tag">→ 조직 지식의 코드화</span>
       </div>
     </div>
   </div>
@@ -442,7 +489,7 @@
     <div class="rv">
       <div class="ey">실제 레퍼런스</div>
       <h2>보일러플레이트가 아닙니다.<br/>지금 이 순간에도 동작 중인 시스템입니다.</h2>
-      <p class="sdesc" style="margin-bottom:36px;">셋업만 해드리고 사라지지 않습니다. 납품 후에도 저희가 직접 운영합니다.</p>
+      <p class="sdesc" style="margin-bottom:36px;">셋업만 해드리고 사라지지 않습니다.<br/>납품 후에도 저희가 직접 운영합니다.</p>
     </div>
     <div class="proof-wrap rv" data-d="2">
       <div class="proof-top">
@@ -470,9 +517,9 @@
         </div>
         <div class="proof-quote">
           <p class="proof-q">
-            납품 후 저희가 직접 운영·유지보수합니다. <strong>현재도 매일 코드가 머지되고, AI 리뷰봇이 동작하고, 패키지가 배포되고 있습니다.</strong>
+            납품 후 저희가 직접 운영·유지보수합니다.<br/><strong>현재도 매일 코드가 머지되고, AI 리뷰봇이 동작하고, 패키지가 배포되고 있습니다.</strong>
             <br/><br/>
-            보일러플레이트가 아닙니다. <strong>실제로 팀의 개발 속도와 코드 품질이 달라진 시스템을 그대로 가져다 드립니다.</strong>
+            보일러플레이트가 아닙니다.<br/><strong>실제로 팀의 개발 속도와 코드 품질이 달라진 시스템을 그대로 가져다 드립니다.</strong>
           </p>
         </div>
       </div>
@@ -480,7 +527,7 @@
         <div class="proof-m"><div class="proof-mv" data-count="12" data-suffix="개">12개</div><div class="proof-ml">운영 중인 사내 패키지</div></div>
         <div class="proof-m"><div class="proof-mv" data-count="2" data-suffix="개월+">2개월+</div><div class="proof-ml">프로덕션 안정 운영</div></div>
         <div class="proof-m"><div class="proof-mv">전 MR</div><div class="proof-ml">AI 코드리뷰 적용 중</div></div>
-        <div class="proof-m"><div class="proof-mv" data-count="2" data-suffix="주">2주</div><div class="proof-ml">최초 납품 기간</div></div>
+        <div class="proof-m"><div class="proof-mv">최단기</div><div class="proof-ml">납품 가능</div></div>
       </div>
     </div>
   </div>
@@ -491,9 +538,9 @@
     <div class="ax-block rv" id="ax-block">
       <div class="ax-left">
         <div class="ey">왜 지금 필요한가</div>
-        <h2>AI 코딩 도구,<br/>혼자선 한계가 있습니다</h2>
-        <p>Cursor, Claude Code — 모두 컨벤션이 있을 때 진가를 발휘합니다. 컨벤션 없이 AI가 생성한 코드는 팀원마다 전부 다른 스타일로 나옵니다.</p>
-        <p>이 플랫폼은 <strong style="color:var(--t1)">AI 도구가 제대로 작동하는 환경</strong>을 만들어줍니다. ESLint 커스텀 룰, 공통 컴포넌트, 정해진 패턴 — AI는 이걸 학습해 팀의 표준에 맞는 코드를 냅니다.</p>
+        <h2>AX 선언만으로는<br/>아무것도 바뀌지 않습니다</h2>
+        <p>AI 도구를 도입해도,<br/>팀에 표준화된 개발 인프라가 없으면 효과는 제한적입니다.<br/>개발자마다 다른 방식으로 코드를 만들고,<br/>기술 부채는 계속 쌓입니다.</p>
+        <p>Axiom은 <strong style="color:var(--t1)">AX가 실제로 작동하는 기반</strong>을 구축합니다.<br/>코드 표준, 공통 자산, 자동화된 품질 관리 —<br/>이 위에서 AI 도구가 비로소 제 역할을 합니다.</p>
       </div>
       <div class="ax-right">
         <div class="ey" style="margin-bottom:24px;">플랫폼 도입 전 vs 후</div>
@@ -528,7 +575,7 @@
     <div class="rv">
       <div class="ey">Product</div>
       <h2>4가지 문제를 한 번에</h2>
-      <p class="sdesc">각각 사도 됩니다. 하지만 함께 있을 때 진짜 효과가 납니다.</p>
+      <p class="sdesc">각각 사도 됩니다.<br/>하지만 함께 있을 때 진짜 효과가 납니다.</p>
     </div>
     <div class="feat-g">
       <div class="fc rv" data-d="1">
@@ -537,20 +584,7 @@
         <div class="fc-value">z-index, aria 속성, 이벤트 전파 같은 실수를 시니어 대신 잡아줍니다</div>
         <div class="fc-value">한국어로 리뷰 — 한국 개발 문화에 맞는 컨벤션 기준으로 동작합니다</div>
         <div class="fc-value">토큰 최소화 설계 — 비용 걱정 없이 전 MR에 적용 가능합니다</div>
-        <div class="rev">
-          <div class="rev-hd">
-            <div class="bav"><i data-lucide="bot"></i></div>
-            <div><div class="bnm">ai-code-review-bot</div><div class="btm">방금 전 · Developer</div></div>
-          </div>
-          <div class="risk"><i data-lucide="alert-triangle"></i> Risk Level: MEDIUM</div>
-          <div class="rl ok tl-r">BottomNavigation z-index 추가 — 겹침 이슈 명확하게 해결</div>
-          <div class="rl ok tl-r">stopPropagation으로 이벤트 전파 차단, 실사용성 효과적</div>
-          <div class="rl wn tl-r">aria-haspopup 용도 확인 — dialog vs menu 역할 재검토 필요</div>
-          <div class="rdiff tl-r">
-            <div class="dd">- className="peer"</div>
-            <div class="da">+ className="relative peer"</div>
-          </div>
-        </div>
+        <div class="fc-screenshot"><img src="screenshot-review-overview.png" alt="AI 코드리뷰 봇 실제 동작 화면"/></div>
       </div>
       <div class="fc rv" data-d="2">
         <span class="ey">02 · npm Registry</span>
@@ -558,17 +592,7 @@
         <div class="fc-value">npmjs와 같은 UI/UX — 누구나 패키지를 검색하고 바로 활용합니다</div>
         <div class="fc-value">퇴사해도 @co/hooks는 남습니다. 지식이 코드로 제품화됩니다</div>
         <div class="fc-value">다른 팀과 기술 자산을 공유하는 협업 생태계가 만들어집니다</div>
-        <div class="term" id="term-npm">
-          <div class="tbar"><div class="tl lr"></div><div class="tl ly"></div><div class="tl lg"></div><span class="ttl">internal registry · 12 packages</span></div>
-          <div class="tbody">
-            <div class="tl-r"><span class="tp">@company/eslint-config</span>  <span class="tc">1.0.0</span></div>
-            <div class="tl-r"><span class="tp">@company/hooks</span>          <span class="tc">1.0.0</span></div>
-            <div class="tl-r"><span class="tp">@company/ui-framework</span>   <span class="tc">1.0.0</span></div>
-            <div class="tl-r"><span class="tp">@company/native-bridge</span>  <span class="tc">1.0.0</span></div>
-            <div class="tl-r"><span class="tc">... 8 more packages</span></div>
-            <div class="tl-r" style="margin-top:6px;"><span class="tg2">✓</span> <span class="tc">pnpm add @company/hooks 로 즉시 사용</span></div>
-          </div>
-        </div>
+        <div class="fc-screenshot"><img src="screenshot-registry.png" alt="사내 npm 레지스트리 실제 화면"/></div>
       </div>
       <div class="fc rv" data-d="3">
         <span class="ey">03 · Monorepo Platform</span>
@@ -576,15 +600,8 @@
         <div class="fc-value">Turborepo 기반 빌드 캐싱 — CI 시간을 극적으로 줄입니다</div>
         <div class="fc-value">Storybook + Docusaurus — 컴포넌트 문서가 자동으로 쌓입니다</div>
         <div class="fc-value">ESLint 커스텀 플러그인 — AI 코딩 결과물이 팀 표준을 따릅니다</div>
-        <div class="term" id="term-build">
-          <div class="tbar"><div class="tl lr"></div><div class="tl ly"></div><div class="tl lg"></div><span class="ttl">pnpm build</span></div>
-          <div class="tbody">
-            <div class="tl-r"><span class="tg2">✓</span> <span class="tc">12 tasks cached (4.2s)</span></div>
-            <div class="tl-r"><span class="tg2">✓</span> <span class="tc">0 errors · 0 warnings</span></div>
-            <div class="tl-r"><span class="tg2">✓</span> <span class="tc">cache hit ratio: 100%</span></div>
-            <div class="tl-r"><span class="crs"></span></div>
-          </div>
-        </div>
+        <div class="fc-value">SEO/GEO 최적화 구조 — 검색 엔진과 AI 검색에 대응하는 설계가 기본 포함됩니다</div>
+        <div class="fc-screenshot"><img src="screenshot-stack.png" alt="기술 스택 구성"/></div>
       </div>
       <div class="fc rv" data-d="4">
         <span class="ey">04 · AI DevKit</span>
@@ -592,16 +609,7 @@
         <div class="fc-value">GitLab MR 자동 생성 — 제목, 설명, 레이블까지 자동으로</div>
         <div class="fc-value">커밋 메시지, 테스트 코드, 기술 문서 — 전부 자동화됩니다</div>
         <div class="fc-value">팀 컨벤션을 학습한 AI — 일관된 코드 품질을 유지합니다</div>
-        <div class="term" id="term-devkit">
-          <div class="tbar"><div class="tl lr"></div><div class="tl ly"></div><div class="tl lg"></div><span class="ttl">@axiom/ai-workflow-devkit v2.0.0</span></div>
-          <div class="tbody">
-            <div class="tl-r"><span class="tp">/create-mr</span> <span class="tc">feat/bottom-nav</span></div>
-            <div class="tl-r"><span class="tg2">✓</span> <span class="tc">GitLab MR #1847 생성</span></div>
-            <div class="tl-r"><span class="tp">/gen-test</span> <span class="tc">BottomNavigation.tsx</span></div>
-            <div class="tl-r"><span class="tg2">✓</span> <span class="tc">Jest 8 cases 생성 완료</span></div>
-            <div class="tl-r"><span class="crs"></span></div>
-          </div>
-        </div>
+        <div class="fc-screenshot"><img src="screenshot-devkit.png" alt="AI DevKit 패키지 상세"/></div>
       </div>
     </div>
   </div>
@@ -611,8 +619,8 @@
   <div class="wrap">
     <div class="rv">
       <div class="ey">ROI</div>
-      <h2>지금 시작해도 <span style="color:var(--gr)">6개월 뒤</span>에나<br>쓸 수 있습니다</h2>
-      <p class="sdesc">직접 만들면 시니어 엔지니어 여러 명이 반 년을 날립니다.<br>그 시간에 경쟁사는 이미 시장을 점령합니다.</p>
+      <h2>직접 구축하면 <span style="color:var(--gr)">6개월과 5천만원</span>이 사라집니다</h2>
+      <p class="sdesc">그 시간과 비용을 사업 확장에 쓰세요.<br/>인프라는 저희가 단기간 내 완성합니다.</p>
     </div>
     <div class="roi-w rv" data-d="2">
       <table>
@@ -626,7 +634,7 @@
           <tr style="background:rgba(255,255,255,.03)">
             <td><strong style="font-size:.88rem;">태워버린 총합</strong></td>
             <td style="font-family:var(--mono);font-size:.85rem;"><strong style="color:#ff6b6b;">₩52,000,000<br><span style="font-size:.7rem;color:var(--t3);">+ 엔지니어 6개월 기회비용</span></strong></td>
-            <td><strong style="color:var(--gr);font-family:var(--mono);font-size:.85rem;">2주 안에 가동<br><span style="font-size:.7rem;color:var(--t3);">나머지 시간은 제품에 쏟으세요</span></strong></td>
+            <td><strong style="color:var(--gr);font-family:var(--mono);font-size:.85rem;">단기간 내 가동<br><span style="font-size:.7rem;color:var(--t3);">나머지 시간은 사업 확장에 쏟으세요</span></strong></td>
           </tr>
         </tbody>
       </table>
@@ -634,8 +642,8 @@
     <div class="rv" data-d="3" style="margin-top:24px; padding:20px 28px; background:rgba(62,207,142,.06); border:1px solid rgba(62,207,142,.18); border-radius:10px; display:flex; align-items:center; gap:16px;">
       <span style="font-size:1.4rem;">⏱</span>
       <p style="font-size:.88rem; line-height:1.7; color:var(--t2);">
-        <strong style="color:var(--t1);">5,200만원과 6개월을 쏟고 나면,</strong> 그때서야 비로소 "진짜 일"을 시작할 수 있습니다.<br>
-        Axiom은 그 모든 걸 <strong style="color:var(--gr)">2주 만에 건네드립니다.</strong>
+        <strong style="color:var(--t1);">5,200만원과 6개월을 인프라에 쓰는 동안,</strong><br/>경쟁사는 이미 제품을 출시합니다.<br/>
+        Axiom은 그 인프라를 <strong style="color:var(--gr)">단기간 내 구축해드립니다.</strong><br/>귀사는 사업에만 집중하세요.
       </p>
     </div>
   </div>
@@ -645,20 +653,19 @@
   <div class="cta-line"></div>
   <div style="position:relative;max-width:520px;margin:0 auto;" class="rv">
     <div class="ey" style="text-align:center;">Get started</div>
-    <h2>팀이 달라지는 데<br/>2주면 충분합니다</h2>
-    <p class="sdesc">30분 데모 미팅으로 현재 팀 상황에 맞는 도입 방안을 확인하세요. AI 코드리뷰 봇이 실제로 PR을 리뷰하는 장면을 직접 보여드립니다.</p>
+    <h2>AX 전환의 첫 단추,<br/>30분이면 충분합니다</h2>
+    <p class="sdesc">귀사의 개발 환경에 맞는 도입 방안을 30분 미팅으로 확인하세요.<br/>실제 프로덕션에서 운영 중인 시스템을 직접 보여드립니다.</p>
     <button onclick="openModal()" class="bw" style="font-size:.88rem;padding:11px 24px;margin:0 auto;display:inline-flex;">
-      데모 미팅 신청하기
+      도입 상담 신청하기
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-    <div class="cta-mail">✉ leverage.copark@gmail.com</div>
   </div>
 </section>
 <div id="demo-modal" class="modal-overlay">
   <div class="modal">
     <div class="modal-head">
       <div>
-        <div class="ey">데모 미팅 신청</div>
+        <div class="ey">도입 상담 신청</div>
         <h3>30분이면 충분합니다</h3>
       </div>
       <button class="modal-close" id="modal-close"><i data-lucide="x"></i></button>
@@ -797,6 +804,15 @@
       card.style.setProperty('--my', ((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
     }, {passive:true});
   });
+  /* ── Hero terminal line stagger ── */
+  const heroTerm = document.getElementById('hero-term');
+  if(heroTerm){
+    setTimeout(()=>{
+      heroTerm.querySelectorAll('.ht-line').forEach((line,i)=>{
+        setTimeout(()=>line.classList.add('ht-show'), i * 180);
+      });
+    }, 800);
+  }
   const rvObs = new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting){ e.target.classList.add('in'); rvObs.unobserve(e.target); }
