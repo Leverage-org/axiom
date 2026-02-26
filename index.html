@@ -645,13 +645,13 @@
   <div class="cta-line"></div>
   <div style="position:relative;max-width:520px;margin:0 auto;" class="rv">
     <div class="ey" style="text-align:center;">Get started</div>
-    <h2>팀의 생산성이 달라지는 데<br/>2주면 충분합니다</h2>
+    <h2>팀이 달라지는 데<br/>2주면 충분합니다</h2>
     <p class="sdesc">30분 데모 미팅으로 현재 팀 상황에 맞는 도입 방안을 확인하세요. AI 코드리뷰 봇이 실제로 PR을 리뷰하는 장면을 직접 보여드립니다.</p>
     <button onclick="openModal()" class="bw" style="font-size:.88rem;padding:11px 24px;margin:0 auto;display:inline-flex;">
       데모 미팅 신청하기
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-    <div class="cta-mail">✉ leverage.copark@gmail.com</div>
+    <div class="cta-mail">✉ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0468617261766563612a676b7465766f446369656d682a676b69">[email&#160;protected]</a></div>
   </div>
 </section>
 <div id="demo-modal" class="modal-overlay">
@@ -677,8 +677,12 @@
         <input type="email" name="email" placeholder="name@company.com" required/>
       </div>
       <div class="form-row">
-        <label>현재 상황 <span>(선택)</span></label>
-        <textarea name="message" placeholder="팀 규모, 현재 겪고 있는 문제 등 자유롭게 적어주세요." rows="3"></textarea>
+        <label>연락처</label>
+        <input type="tel" name="phone" placeholder="010-0000-0000" required/>
+      </div>
+      <div class="form-row">
+        <label>팀 환경 <span>(선택)</span></label>
+        <textarea name="message" placeholder="예: FE 5명, 모노레포 도입 검토 중 / PR 리뷰가 병목 등" rows="3"></textarea>
       </div>
       <button type="submit" class="bw form-submit">
         신청 보내기
@@ -697,7 +701,7 @@
     <div class="fcopy">© 2026 · 실제 프로덕션 레퍼런스 기반</div>
   </div>
 </footer>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   const prog = document.getElementById('scroll-prog');
   function updateProg(){
@@ -740,8 +744,9 @@
     const name = fd.get('name');
     const company = fd.get('company');
     const email = fd.get('email');
+    const phone = fd.get('phone');
     const message = fd.get('message') || '(없음)';
-    const text = `📩 새 데모 신청\n\n이름: ${name}\n회사: ${company}\n이메일: ${email}\n상황: ${message}`;
+    const text = `📩 새 데모 신청\n\n이름: ${name}\n회사: ${company}\n이메일: ${email}\n연락처: ${phone}\n팀 환경: ${message}`;
     try {
       const res = await fetch('https://api.telegram.org/bot8788689900:AAFWkuP4X2CdrfxSU3w3f_4uexQpwj5MAN4/sendMessage', {
         method: 'POST',
@@ -852,14 +857,4 @@
     btn.addEventListener('mousemove', e=>{
       const r = btn.getBoundingClientRect();
       const dx = (e.clientX - (r.left + r.width/2)) * 0.18;
-      const dy = (e.clientY - (r.top  + r.height/2)) * 0.18;
-      btn.style.transform = `translate(${dx}px,${dy}px) scale(1.02)`;
-    }, {passive:true});
-    btn.addEventListener('mouseleave', ()=>{
-      btn.style.transform = '';
-    });
-  });
-})();
-</script>
-</body>
-</html>
+      const dy = (e.clientY - (r.top  + r.
