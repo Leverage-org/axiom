@@ -651,7 +651,7 @@
       데모 미팅 신청하기
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-    <div class="cta-mail">✉ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0468617261766563612a676b7465766f446369656d682a676b69">[email&#160;protected]</a></div>
+    <div class="cta-mail">✉ leverage.copark@gmail.com</div>
   </div>
 </section>
 <div id="demo-modal" class="modal-overlay">
@@ -701,7 +701,7 @@
     <div class="fcopy">© 2026 · 실제 프로덕션 레퍼런스 기반</div>
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 (function(){
   const prog = document.getElementById('scroll-prog');
   function updateProg(){
@@ -857,4 +857,14 @@
     btn.addEventListener('mousemove', e=>{
       const r = btn.getBoundingClientRect();
       const dx = (e.clientX - (r.left + r.width/2)) * 0.18;
-      const dy = (e.clientY - (r.top  + r.
+      const dy = (e.clientY - (r.top  + r.height/2)) * 0.18;
+      btn.style.transform = `translate(${dx}px,${dy}px) scale(1.02)`;
+    }, {passive:true});
+    btn.addEventListener('mouseleave', ()=>{
+      btn.style.transform = '';
+    });
+  });
+})();
+</script>
+</body>
+</html>
